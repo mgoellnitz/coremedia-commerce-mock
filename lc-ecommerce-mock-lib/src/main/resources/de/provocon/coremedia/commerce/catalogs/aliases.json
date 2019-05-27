@@ -1,0 +1,13 @@
+{
+  "aliases": 
+          [
+            {
+              "alias": "C",
+              "ref": "A"
+            },
+            {
+              "alias": "D",
+              "ref": "B"
+            }
+          ]
+}

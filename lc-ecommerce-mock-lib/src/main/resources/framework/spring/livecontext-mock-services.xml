@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright 2019 Martin Goellnitz for Provocon.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <context:annotation-config/>
+
+  <import resource="livecontext-mock-rest-connect.xml"/>
+  <!-- <import resource="livecontext-mock-cache.xml"/> -->
+  <import resource="classpath:/com/coremedia/cap/multisite/multisite-services.xml"/>
+  <import resource="classpath:/com/coremedia/blueprint/base/links/bpbase-links-services.xml"/>
+  <import resource="classpath:/framework/spring/lc-ecommerce-services.xml"/>
+
+  <bean id="mockCommerceBeanFactory" class="com.coremedia.blueprint.base.livecontext.ecommerce.common.SpringCommerceBeanFactory">
+    <property name="storeContextProvider" ref="mockStoreContextProvider"/>
+  </bean>
+
+  <!-- === Providers === -->
+  <!--
+  <bean id="mockCommerceIdProvider" class="...MockCommerceIdProvider"/>
+
+  <bean id="mockStoreContextProvider" class="...MockStoreContextProvider">
+    <constructor-arg index="0" name="commerceConnectionFinder" ref="defaultCommerceConnectionFinder"/>
+    <property name="settingsService" ref="settingsService"/>
+    <property name="sitesService" ref="sitesService"/>
+    <property name="cache" ref="cache"/>
+    <property name="storeConfigResource" ref="mockStoreConfigResource"/>
+  </bean>
+
+  <bean id="mockUserContextProvider" class="...MockUserContextProvider"/>
+  -->
+
+  <!-- === Services === -->
+  <bean id="mockCatalogService" class="de.provocon.coremedia.commerce.mock.catalog.MockCatalogService">
+    <property name="catalogResource" ref="mockCatalogResource"/>
+  </bean>
+
+  <!--
+  <bean id="mockPriceService" class="...MockPriceService">
+  </bean>
+
+  <bean id="mockSegmentService" class="...MockSegmentService">
+  </bean>
+
+  <bean id="mockInvalidationService" class="...MockInvalidationService">
+  </bean>
+
+  <bean id="mockAssetUrlProvider" class="...MockAssetUrlProviderl">
+  </bean>
+
+  <bean id="mockPreview class="...MockPreviewTokenService">
+  </bean>
+  -->
+
+  <bean id="mockStorefrontConnector" class="com.coremedia.blueprint.base.livecontext.service.StoreFrontConnector">
+    <property name="connectionPoolSize" value="200"/>
+    <property name="connectionTimeout" value="10000"/>
+    <property name="socketTimeout" value="30000"/>
+  </bean>
+
+  <bean id="mockStoreFrontService" class="com.coremedia.blueprint.base.livecontext.service.StoreFrontService">
+    <property name="storeFrontConnector" ref="mockStorefrontConnector"/>
+  </bean>
+
+</beans>

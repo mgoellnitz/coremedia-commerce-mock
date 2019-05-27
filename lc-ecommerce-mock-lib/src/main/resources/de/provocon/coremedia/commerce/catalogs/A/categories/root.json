@@ -1,0 +1,7 @@
+{
+  "name": "Root Category",
+  "isRoot": "true",
+  "shortDescription": "Short description of the Root Category",
+  "longDescription": "This is a rather long description of the Root Category of this Catalog.",
+  "children": []
+}

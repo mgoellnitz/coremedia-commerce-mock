@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright 2019 Martin Goellnitz for Provocon.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <import resource="classpath:/framework/spring/livecontext-mock-services.xml"/>
+
+  <bean name="commerce:mock1" class="com.coremedia.blueprint.base.livecontext.ecommerce.common.BaseCommerceConnection" scope="prototype">
+    <!-- <property name="assetUrlProvider" ref="mockAssetUrlProvider"/> -->
+    <property name="storeContextProvider" ref="mockStoreContextProvider"/>
+    <property name="userContextProvider" ref="mockUserContextProvider"/>
+    <property name="catalogService" ref="mockCatalogService"/>
+    <property name="idProvider" ref="mockCommerceIdProvider"/>
+    <property name="commerceBeanFactory" ref="mockCommerceBeanFactory"/>
+    <property name="vendorUrl" value="${livecontext.mock.vendorUrl}"/>
+    <property name="vendorVersion" value="${livecontext.mock.vendorVersion}"/>
+    <property name="vendorName" value="${livecontext.mock.vendorName}"/>
+    <!-- <property name="segmentService" ref="mockSegmentService"/> -->
+    <!-- <property name="invalidationService" ref="mockInvalidationService"/> -->
+    
+    <!--<property name="marketingSpotService" ref="mockMarketingSpotService"/>-->
+    <!--<property name="cartService" ref="mockCartService"/>-->
+    <!--<property name="availabilityService" ref="AmockAvailabilityService"/>-->
+    <!--<property name="searchService" ref="mockSearchService"/>-->
+    <!--<property name="workspaceService" ref="mockWorkspaceService"/>-->
+    <!--<property name="contractService" ref="mockContractService"/>-->
+    <!--<property name="userSessionService" ref="mockCommerceUserSessionService"/>-->
+    <!--<property name="userService" ref="mockCommerceUserService"/>-->
+  </bean>
+
+</beans>
