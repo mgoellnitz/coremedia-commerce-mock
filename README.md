@@ -1,5 +1,4 @@
-CoreMedia Content Cloud Mock for Custom Commerce Systems
-========================================================
+# CoreMedia Content Cloud Mock for Custom Commerce Systems
 
 The main part of this repository is the Wiki describing the necessary steps to
 integrate CoreMedia LiveContext 3 with your custom commerce system.
