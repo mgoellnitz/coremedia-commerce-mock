@@ -1,4 +1,5 @@
-# CoreMedia LiveContext 3 for Custom Commerce Systems
+CoreMedia Content Cloud Mock for Custom Commerce Systems
+========================================================
 
 The main part of this repository is the Wiki describing the necessary steps to
 integrate CoreMedia LiveContext 3 with your custom commerce system.
@@ -8,7 +9,7 @@ helpful to have a mock product catalog implementation in place ready to use,
 to check if other parts are set up correctly.
 
 So the code part of this repository is no full CoreMedia LiveContext 3 integration
-but leaves out the presenation layer in the commerce system and parts of its
+but leaves out the presentation layer in the commerce system and parts of its
 CoreMedia LiveContext 3 counterpart, since these - Adapter and at least a Theme 
 - have to be implemented following the details of your custom commerce system
 which can't be impemented generically but just described in the Wiki.
@@ -75,5 +76,5 @@ modules/frontend/lib/tools/grunt/configs/themes/sass.js
 ## Cosmetics
 
 For consistency reasons you might decide to move the dependency management part
-of the root `pom.xml` of the mock-catalog extension to the root `pom.xml` of the
-workspace.
+of the root `pom.xml` of the mock-catalog extension to the root 
+`blueprint-parent/pom.xml` of the workspace.
