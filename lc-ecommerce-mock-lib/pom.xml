@@ -31,6 +31,10 @@
       <artifactId>coremedia-xml</artifactId>
     </dependency>
     <dependency>
+      <groupId>com.coremedia.cms</groupId>
+      <artifactId>cap-multisite</artifactId>
+    </dependency>
+    <dependency>
       <groupId>com.coremedia.livecontext</groupId>
       <artifactId>lc-ecommerce-api</artifactId>
     </dependency>
